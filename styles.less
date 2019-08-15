@@ -6,7 +6,6 @@ body {
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  // font-family: 'Crafty Girls', cursive;
 
   * {
     box-sizing: border-box;
@@ -15,11 +14,21 @@ body {
 
 section {
   padding: 50px 20px;
-  // height: 100vh;
 }
 
 .cv-section {
-  background-color: chocolate;
+  background-color: #62534e;
+
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    background-color: rgb(218, 165, 191);
+    padding: 10px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-size: 28px;
+  }
 
   .container {
     display: grid;
@@ -27,12 +36,97 @@ section {
     // grid-template-rows: 25% auto;
     grid-row-gap: 3em;
     grid-template-areas: 
-                        "image description description"
+                        "description description technologies"
                         "projects projects projects";
   }
 
+  .description {
+    grid-area: description;
+    padding: 0 20px;
+  }
+
+  .technologies {
+    grid-area: technologies;
+  }
+
+  .projects-wrapper {
+    grid-area: projects;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "project project project";
+
+    .project-item {
+      display: flex;
+      flex-direction: column;
+      background-color: transparent;
+      width: 250px;
+      height: 350px;
+      perspective: 1000px;
+
+      &:hover .project-item-inner {
+        transform: rotateY(180deg);
+      }
+
+      h3 {
+        font-family: 'Crafty Girls', cursive;
+        text-align: center;
+      }
+    }
+
+    .project-item-inner {
+      // position: relative;
+      // width: 100%;
+      // height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .project-item-front,
+    .project-item-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    .image-wrapper {
+      width: 250px;
+      height: 350px;
+      overflow: hidden;
+      border-radius: 10px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .project-item-back {
+      transform: rotateY(180deg);
+      width: 250px;
+      height: 350px;
+      color: #fff;
+      border-radius: 10px;
+      background-color: rgba(0, 102, 96, 0.8);
+      padding: 15px;
+    }
+
+    .project-link {
+      color: #eee;
+      font-weight: 900;
+      text-decoration: none;
+
+      &:visited {
+        color: #ddc7c7;
+      }
+    }
+  }
+}
+.contact-section {
+  background-color: #be5164;
+
   .main-image-wrapper {
-    grid-area: image;
     width: 190px;
     height: 186px;
     justify-self: center;
@@ -42,66 +136,6 @@ section {
     img {
       width: 100%;
       height: auto;
-      justify-self: center;
     }
   }
-
-  .description {
-    grid-area: description;
-  }
-
-  .projects-wrapper {
-    grid-area: projects;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "project project project";
-
-    .project-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 10px 20px;
-      position: relative;
-    }
-
-    .image-wrapper {
-      position: relative;
-      width: 250px;
-      height: 350px;
-      overflow: hidden;
-
-      &:hover {
-        &:after {
-          content: '';
-          position: absolute;
-          opacity: 0.7;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-        }
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    .project-description {
-      display: none;
-
-    }
-
-    .image-wrapper:hover ~ .project-description {
-      display: block;
-      position: absolute;
-      top: 0;
-      padding: 10px;
-      width: 250px;
-    }
-  }
-}
-.contact-section {
-  background-color: greenyellow;
 }

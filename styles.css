@@ -13,72 +13,102 @@ section {
   padding: 50px 20px;
 }
 .cv-section {
-  background-color: chocolate;
+  background-color: #62534e;
+}
+.cv-section h1 {
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  background-color: #daa5bf;
+  padding: 10px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-size: 28px;
 }
 .cv-section .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 3em;
-  grid-template-areas: "image description description" "projects projects projects";
-}
-.cv-section .main-image-wrapper {
-  grid-area: image;
-  width: 190px;
-  height: 186px;
-  justify-self: center;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.cv-section .main-image-wrapper img {
-  width: 100%;
-  height: auto;
-  justify-self: center;
+  grid-template-areas: "description description technologies" "projects projects projects";
 }
 .cv-section .description {
   grid-area: description;
+  padding: 0 20px;
+}
+.cv-section .technologies {
+  grid-area: technologies;
 }
 .cv-section .projects-wrapper {
   grid-area: projects;
   display: grid;
+  justify-items: center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "project project project";
 }
 .cv-section .projects-wrapper .project-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px 20px;
-  position: relative;
+  background-color: transparent;
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+}
+.cv-section .projects-wrapper .project-item:hover .project-item-inner {
+  transform: rotateY(180deg);
+}
+.cv-section .projects-wrapper .project-item h3 {
+  font-family: 'Crafty Girls', cursive;
+  text-align: center;
+}
+.cv-section .projects-wrapper .project-item-inner {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.cv-section .projects-wrapper .project-item-front,
+.cv-section .projects-wrapper .project-item-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
 }
 .cv-section .projects-wrapper .image-wrapper {
-  position: relative;
   width: 250px;
   height: 350px;
   overflow: hidden;
-}
-.cv-section .projects-wrapper .image-wrapper:hover:after {
-  content: '';
-  position: absolute;
-  opacity: 0.7;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, #3f5efb 0%, #fc466b 100%);
+  border-radius: 10px;
 }
 .cv-section .projects-wrapper .image-wrapper img {
   width: 100%;
   height: auto;
 }
-.cv-section .projects-wrapper .project-description {
-  display: none;
-}
-.cv-section .projects-wrapper .image-wrapper:hover ~ .project-description {
-  display: block;
-  position: absolute;
-  top: 0;
-  padding: 10px;
+.cv-section .projects-wrapper .project-item-back {
+  transform: rotateY(180deg);
   width: 250px;
+  height: 350px;
+  color: #fff;
+  border-radius: 10px;
+  background-color: rgba(0, 102, 96, 0.8);
+  padding: 15px;
+}
+.cv-section .projects-wrapper .project-link {
+  color: #eee;
+  font-weight: 900;
+  text-decoration: none;
+}
+.cv-section .projects-wrapper .project-link:visited {
+  color: #ddc7c7;
 }
 .contact-section {
-  background-color: greenyellow;
+  background-color: #be5164;
+}
+.contact-section .main-image-wrapper {
+  width: 190px;
+  height: 186px;
+  justify-self: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.contact-section .main-image-wrapper img {
+  width: 100%;
+  height: auto;
 }
