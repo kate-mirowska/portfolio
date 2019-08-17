@@ -9,43 +9,115 @@ body {
 body * {
   box-sizing: border-box;
 }
-section {
+body section {
   padding: 50px 20px;
 }
-.cv-section {
-  background-color: #62534e;
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  background: url('./images/bokeh-bg.jpg') no-repeat;
+  background-position: center;
+  position: relative;
+  font-family: monospace;
 }
-.cv-section h1 {
+.hero-section .hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hero-section .hero-title h1 {
+  display: inline-block;
+}
+.hero-section .hero-title span {
+  font-size: 20px;
+}
+.hero-section .hero-title h2 {
+  overflow: hidden;
+  display: inline-block;
+  border-right: 0.15em solid #000;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 4s steps(30, end), blink-caret 1s step-end infinite;
+}
+.about-me {
+  position: relative;
+}
+.about-me:after {
+  content: "";
+  background-image: url('./images/roses_bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+.about-me h2 {
   text-align: center;
   text-transform: uppercase;
   display: block;
-  background-color: #daa5bf;
   padding: 10px;
-  border-radius: 10px;
   letter-spacing: 1px;
   font-size: 28px;
 }
-.cv-section .container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 3em;
-  grid-template-areas: "description description technologies" "projects projects projects";
+.about-me .container {
+  display: flex;
+  flex-direction: column;
 }
-.cv-section .description {
+.about-me .main-image-wrapper {
+  grid-area: image;
+  width: 51%;
+  height: 120%;
+  justify-self: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.about-me .main-image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+.about-me .description {
   grid-area: description;
   padding: 0 20px;
+  font-weight: 900;
 }
-.cv-section .technologies {
+.about-me .technologies {
   grid-area: technologies;
+  text-align: center;
 }
-.cv-section .projects-wrapper {
+.about-me .technologies h3 {
+  font-size: 26px;
+}
+.about-me .technologies-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.about-me .technologies-wrapper > div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.about-me .technologies-wrapper span {
+  font-size: 12px;
+  font-weight: 700;
+}
+.about-me .technologies-wrapper i {
+  margin: 0 5px;
+}
+.projects {
   grid-area: projects;
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "project project project";
 }
-.cv-section .projects-wrapper .project-item {
+.projects .project-item {
   display: flex;
   flex-direction: column;
   background-color: transparent;
@@ -53,49 +125,49 @@ section {
   height: 350px;
   perspective: 1000px;
 }
-.cv-section .projects-wrapper .project-item:hover .project-item-inner {
+.projects .project-item:hover .project-item-inner {
   transform: rotateY(180deg);
 }
-.cv-section .projects-wrapper .project-item h3 {
+.projects .project-item h3 {
   font-family: 'Crafty Girls', cursive;
   text-align: center;
 }
-.cv-section .projects-wrapper .project-item-inner {
+.projects .project-item-inner {
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-.cv-section .projects-wrapper .project-item-front,
-.cv-section .projects-wrapper .project-item-back {
+.projects .project-item-front,
+.projects .project-item-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
 }
-.cv-section .projects-wrapper .image-wrapper {
+.projects .image-wrapper {
   width: 250px;
   height: 350px;
   overflow: hidden;
   border-radius: 10px;
 }
-.cv-section .projects-wrapper .image-wrapper img {
+.projects .image-wrapper img {
   width: 100%;
   height: auto;
 }
-.cv-section .projects-wrapper .project-item-back {
+.projects .project-item-back {
   transform: rotateY(180deg);
   width: 250px;
   height: 350px;
-  color: #fff;
+  font-weight: 700;
   border-radius: 10px;
-  background-color: rgba(0, 102, 96, 0.8);
+  background-image: linear-gradient(to right top, #daa5bf, #ff9fa4, #ffa96e, #fbc72d, #a8eb12);
   padding: 15px;
 }
-.cv-section .projects-wrapper .project-link {
+.projects .project-link {
   color: #eee;
   font-weight: 900;
   text-decoration: none;
 }
-.cv-section .projects-wrapper .project-link:visited {
+.projects .project-link:visited {
   color: #ddc7c7;
 }
 .contact-section {
@@ -111,4 +183,37 @@ section {
 .contact-section .main-image-wrapper img {
   width: 100%;
   height: auto;
+}
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 360px;
+  }
+}
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hero-section h1 {
+    font-size: 36px;
+  }
+  .about-me .container {
+    flex-direction: row;
+  }
+  .about-me .technologies-wrapper {
+    justify-content: center;
+  }
+  .about-me .technologies-wrapper i {
+    font-size: 34px;
+  }
 }

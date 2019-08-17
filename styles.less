@@ -10,119 +10,207 @@ body {
   * {
     box-sizing: border-box;
   }
+
+  section {
+    padding: 50px 20px;
+  }  
 }
 
-section {
-  padding: 50px 20px;
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  background: url('./images/bokeh-bg.jpg') no-repeat;
+  background-position: center;
+  position: relative;
+  font-family: monospace;
+
+  .hero-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    h1 {
+      display: inline-block;
+    }
+
+    span {
+      font-size: 20px;
+    }
+  
+    h2 {
+      overflow: hidden;
+      display: inline-block;
+      border-right: .15em solid #000;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .15em;
+      animation: 
+        typing 4s steps(30, end),
+        blink-caret 1s step-end infinite;
+    }
+  }
 }
 
-.cv-section {
-  background-color: #62534e;
+.about-me {
+  position: relative;
 
-  h1 {
+  &:after {
+    content: "";
+    background-image: url('./images/roses_bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+  h2 {
     text-align: center;
     text-transform: uppercase;
     display: block;
-    background-color: rgb(218, 165, 191);
+    // background-image: linear-gradient(to right, #daa5bf, #ff9fa4, #ffa96e, #fbc72d, #a8eb12);
     padding: 10px;
-    border-radius: 10px;
+    // border-radius: 10px;
     letter-spacing: 1px;
     font-size: 28px;
   }
 
+
   .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    // grid-template-rows: 25% auto;
     grid-row-gap: 3em;
-    grid-template-areas: 
-                        "description description technologies"
-                        "projects projects projects";
+  }
+
+  .main-image-wrapper {
+    grid-area: image;
+    width: 51%;
+    height: 120%;
+    justify-self: center;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   .description {
     grid-area: description;
     padding: 0 20px;
+    font-weight: 900;
   }
 
   .technologies {
     grid-area: technologies;
-  }
+    text-align: center;
 
-  .projects-wrapper {
-    grid-area: projects;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "project project project";
+    h3 {
+      font-size: 26px;
+    }
 
-    .project-item {
+    &-wrapper {
       display: flex;
-      flex-direction: column;
-      background-color: transparent;
-      width: 250px;
-      height: 350px;
-      perspective: 1000px;
+      flex-wrap: wrap;
 
-      &:hover .project-item-inner {
-        transform: rotateY(180deg);
+      > div {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+      }
+      span {
+        font-size: 12px;
+        font-weight: 700;
       }
 
-      h3 {
-        font-family: 'Crafty Girls', cursive;
-        text-align: center;
-      }
-    }
-
-    .project-item-inner {
-      // position: relative;
-      // width: 100%;
-      // height: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
-
-    .project-item-front,
-    .project-item-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-    }
-
-    .image-wrapper {
-      width: 250px;
-      height: 350px;
-      overflow: hidden;
-      border-radius: 10px;
-
-      img {
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    .project-item-back {
-      transform: rotateY(180deg);
-      width: 250px;
-      height: 350px;
-      color: #fff;
-      border-radius: 10px;
-      background-color: rgba(0, 102, 96, 0.8);
-      padding: 15px;
-    }
-
-    .project-link {
-      color: #eee;
-      font-weight: 900;
-      text-decoration: none;
-
-      &:visited {
-        color: #ddc7c7;
+      i {
+        margin: 0 5px;
       }
     }
   }
 }
+
+.projects {
+  grid-area: projects;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "project project project";
+
+  .project-item {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    width: 250px;
+    height: 350px;
+    perspective: 1000px;
+
+    &:hover .project-item-inner {
+      transform: rotateY(180deg);
+    }
+
+    h3 {
+      font-family: 'Crafty Girls', cursive;
+      text-align: center;
+    }
+  }
+
+  .project-item-inner {
+    // position: relative;
+    // width: 100%;
+    // height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .project-item-front,
+  .project-item-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .image-wrapper {
+    width: 250px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .project-item-back {
+    transform: rotateY(180deg);
+    width: 250px;
+    height: 350px;
+    font-weight: 700;
+    border-radius: 10px;
+    background-image: linear-gradient(to right top, #daa5bf, #ff9fa4, #ffa96e, #fbc72d, #a8eb12);
+    padding: 15px;
+  }
+
+  .project-link {
+    color: #eee;
+    font-weight: 900;
+    text-decoration: none;
+
+    &:visited {
+      color: #ddc7c7;
+    }
+  }
+}
+
 .contact-section {
   background-color: #be5164;
 
@@ -136,6 +224,43 @@ section {
     img {
       width: 100%;
       height: auto;
+    }
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0px }
+  to { width: 360px }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-section {
+    h1 {
+      font-size: 36px;
+    }
+  }
+
+  .about-me {
+    .container {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: 
+                          "image description description"
+                          "technologies technologies technologies";
+    }
+
+    .technologies-wrapper {
+      justify-content: center;
+
+      i {
+        font-size: 34px;
+      }
     }
   }
 }
