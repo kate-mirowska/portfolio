@@ -5,7 +5,7 @@ body {
 body {
   margin: 0;
   font-family: monospace, sans-serif;
-  background-color: #fffcc9;
+  background-color: #fff;
   color: #0f0f0f;
 }
 body * {
@@ -13,6 +13,13 @@ body * {
 }
 body section {
   padding: 50px 20px;
+}
+body h2 {
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  letter-spacing: 0.8px;
+  font-size: 28px;
 }
 body a,
 body a:link {
@@ -36,18 +43,19 @@ body a:link:visited {
 }
 .hero-section .hero-title {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 13%;
+  right: 13%;
+}
+.hero-section .hero-title h2 {
+  text-transform: initial;
+  text-align: left;
 }
 .hero-section .hero-title span {
   display: none;
 }
 .technologies-section {
   text-align: center;
-}
-.technologies-section h3 {
-  font-size: 26px;
 }
 .technologies-wrapper {
   display: flex;
@@ -63,7 +71,7 @@ body a:link:visited {
   font-size: 12px;
 }
 .technologies-wrapper i {
-  margin: 0 5px;
+  margin: 0 5px 6px 5px;
   font-size: 34px;
 }
 .about-me {
@@ -75,21 +83,13 @@ body a:link:visited {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  opacity: 0.4;
+  opacity: 0.15;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
   z-index: -1;
-}
-.about-me h2 {
-  text-align: center;
-  text-transform: uppercase;
-  display: block;
-  padding: 10px;
-  letter-spacing: 1px;
-  font-size: 28px;
 }
 .about-me .main-image-wrapper {
   border-radius: 10px;
@@ -102,44 +102,68 @@ body a:link:visited {
   height: auto;
   vertical-align: middle;
 }
+.about-me p {
+  margin-top: 0;
+}
 .about-me .description {
   padding: 0 20px;
   font-weight: 900;
+  font-size: 18px;
 }
-.projects .project-item {
+.about-me .description h4 {
+  margin-bottom: 0;
+  display: inline-block;
+  border-bottom: 2px solid saddlebrown;
+}
+.projects h4 {
+  padding-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+.projects-wrapper .project-item {
   display: flex;
   flex-direction: column;
   padding-bottom: 30px;
   margin-bottom: 30px;
   border-bottom: 2px solid orange;
 }
-.projects h3 {
+.projects-wrapper h3 {
   font-family: 'Crafty Girls', cursive;
   text-align: center;
+  font-size: 24px;
 }
-.projects .image-wrapper {
+.projects-wrapper .image-wrapper {
   height: 350px;
   overflow: hidden;
   border-radius: 10px;
 }
-.projects .image-wrapper img {
+.projects-wrapper .image-wrapper img {
   width: 100%;
   height: auto;
 }
-.projects .project-link {
+.projects-wrapper .project-link {
   font-weight: 900;
 }
 .contact-section {
   background-image: url('./images/pink_bg.jpg');
   background-repeat: no-repeat;
   text-align: center;
+  padding: 50px 20px 15px;
 }
 .contact-section i {
   font-size: 40px;
   margin: 0 10px;
 }
+.contact-section .go-up {
+  float: right;
+  border: transparent;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+  background: #eee;
+}
 .contact-section .copyright {
-  text-align: left;
   margin-top: 60px;
   font-size: 12px;
 }
@@ -166,7 +190,7 @@ body a:link:visited {
       width: 0px;
     }
     to {
-      width: 360px;
+      width: 450px;
     }
   }
   /* The typewriter cursor effect */
@@ -179,13 +203,19 @@ body a:link:visited {
       border-color: orange;
     }
   }
-  .projects {
+  .about-me .main-image-wrapper {
+    align-self: center;
+  }
+  .about-me p {
+    margin-top: 18px;
+  }
+  .projects-wrapper {
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 1rem;
   }
-  .projects .project-item {
+  .projects-wrapper .project-item {
     width: 250px;
     height: 450px;
     perspective: 1000px;
@@ -193,36 +223,59 @@ body a:link:visited {
     padding-bottom: 0;
     margin-bottom: 0;
   }
-  .projects .project-item:hover .project-item-inner {
+  .projects-wrapper .project-item:hover .project-item-inner {
     transform: rotateY(180deg);
   }
-  .projects .project-item-inner {
+  .projects-wrapper .project-item-inner {
     transition: transform 0.8s;
     transform-style: preserve-3d;
   }
-  .projects .project-item-front,
-  .projects .project-item-back {
+  .projects-wrapper .project-item-front,
+  .projects-wrapper .project-item-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
   }
-  .projects .image-wrapper {
+  .projects-wrapper .image-wrapper {
     height: 350px;
+    -webkit-box-shadow: 7px 9px 13px -5px rgba(232, 232, 232, 0.66);
+    -moz-box-shadow: 7px 9px 13px -5px rgba(232, 232, 232, 0.66);
+    box-shadow: 10px 10px 13px -7px #dec5d4;
   }
-  .projects .project-item-back {
+  .projects-wrapper .project-item-back {
     transform: rotateY(180deg);
     height: 350px;
     border-radius: 10px;
-    background-image: linear-gradient(to right top, #daa5bf, #ff9fa4, #ffa96e, #fbc72d, #a8eb12);
+    background: #d9a7c7;
+    background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);
+    background: linear-gradient(to right, #fffcdc, #d9a7c7);
     padding: 15px;
+    -webkit-box-shadow: 7px 9px 13px -5px rgba(232, 232, 232, 0.66);
+    -moz-box-shadow: 7px 9px 13px -5px rgba(232, 232, 232, 0.66);
+    box-shadow: 10px 10px 13px -7px #dec5d4;
   }
-  .projects .project-item-back a {
+  .projects-wrapper .project-item-back a {
     position: absolute;
     bottom: 20px;
   }
 }
 @media screen and (min-width: 768px) {
+  body h2 {
+    font-size: 36px;
+  }
+  body i {
+    transition: all 0.2s ease-in-out;
+  }
+  body i:hover {
+    transform: scale(1.2);
+  }
+  .hero-section .hero-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .technologies-wrapper {
     justify-content: center;
   }
@@ -235,7 +288,6 @@ body a:link:visited {
   .about-me .main-image-wrapper {
     grid-area: image;
     justify-self: center;
-    align-self: center;
   }
   .about-me .description {
     grid-area: description;

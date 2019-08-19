@@ -7,7 +7,7 @@ body {
 body {
   margin: 0;
   font-family: monospace, sans-serif;
-  background-color: #fffcc9;
+  background-color: #fff;
   color: #0f0f0f;
 
   * {
@@ -17,6 +17,14 @@ body {
   section {
     padding: 50px 20px;
   }  
+
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    letter-spacing: 0.8px;
+    font-size: 28px;
+  }
 
   a,
   a:link {
@@ -44,9 +52,14 @@ body {
 
   .hero-title {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 13%;
+    right: 13%;
+
+    h2 {
+      text-transform: initial;
+      text-align: left;
+    }
 
     span {
       display: none;
@@ -57,10 +70,6 @@ body {
 .technologies {
   &-section {
     text-align: center;
-
-    h3 {
-      font-size: 26px;
-    }
   }
 
   &-wrapper {
@@ -78,7 +87,7 @@ body {
     }
 
     i {
-      margin: 0 5px;
+      margin: 0 5px 6px 5px;
       font-size: 34px;
     }
   }
@@ -93,22 +102,13 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    opacity: 0.4;
+    opacity: 0.15;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     position: absolute;
     z-index: -1;   
-  }
-
-  h2 {
-    text-align: center;
-    text-transform: uppercase;
-    display: block;
-    padding: 10px;
-    letter-spacing: 1px;
-    font-size: 28px;
   }
 
   .main-image-wrapper {
@@ -123,14 +123,31 @@ body {
       vertical-align: middle;
     }
   }
+  
+  p {
+    margin-top: 0;
+  }
 
   .description {
     padding: 0 20px;
     font-weight: 900;
+    font-size: 18px;
+
+    h4 {
+      margin-bottom: 0;
+      display: inline-block;
+      border-bottom: 2px solid saddlebrown;
+    }
   }
 }
 
-.projects {
+.projects h4 {
+  padding-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.projects-wrapper {
   .project-item {
     display: flex;
     flex-direction: column;
@@ -142,6 +159,7 @@ body {
   h3 {
     font-family: 'Crafty Girls', cursive;
     text-align: center;
+    font-size: 24px;
   }
 
   .image-wrapper {
@@ -164,14 +182,24 @@ body {
   background-image: url('./images/pink_bg.jpg');
   background-repeat: no-repeat;
   text-align: center;
+  padding: 50px 20px 15px;
 
   i {
     font-size: 40px;
     margin: 0 10px;
   }
 
+  .go-up {
+    float: right;
+    border: transparent;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+    background: #eee;
+  }
+
   .copyright {
-    text-align: left;
     margin-top: 60px;
     font-size: 12px;
   }
@@ -209,7 +237,7 @@ body {
       width: 0px 
     }
     to { 
-      width: 360px 
+      width: 450px 
     }
   }
 
@@ -223,7 +251,17 @@ body {
     }
   }
 
-  .projects {
+  .about-me {
+    .main-image-wrapper {
+      align-self: center;
+    }
+
+    p {
+      margin-top: 18px;
+    }
+  }
+
+  .projects-wrapper {
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
@@ -257,14 +295,23 @@ body {
   
     .image-wrapper {
       height: 350px;
+      -webkit-box-shadow: 7px 9px 13px -5px rgba(232, 232, 232, 0.66);
+      -moz-box-shadow: 7px 9px 13px -5px rgba(232, 232, 232, 0.66);
+      box-shadow: 10px 10px 13px -7px #dec5d4;
     }
   
     .project-item-back {
       transform: rotateY(180deg);
       height: 350px;
       border-radius: 10px;
-      background-image: linear-gradient(to right top, #daa5bf, #ff9fa4, #ffa96e, #fbc72d, #a8eb12);
+      background: #d9a7c7;
+      background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);
+      background: linear-gradient(to right, #fffcdc, #d9a7c7);
+
       padding: 15px;
+      -webkit-box-shadow: 7px 9px 13px -5px rgba(232, 232, 232, 0.66);
+      -moz-box-shadow: 7px 9px 13px -5px rgba(232, 232, 232, 0.66);
+      box-shadow: 10px 10px 13px -7px #dec5d4;
 
       a {
         position: absolute;
@@ -275,6 +322,29 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+  body {
+    h2 {
+      font-size: 36px;
+    }
+  
+    i {
+      transition: all .2s ease-in-out;
+  
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .hero-section {
+    .hero-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
   .technologies-wrapper {
     justify-content: center;
   }
@@ -290,7 +360,6 @@ body {
     .main-image-wrapper {
       grid-area: image;
       justify-self: center;
-      align-self: center;
     }
   
     .description {
