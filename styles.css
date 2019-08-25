@@ -38,8 +38,26 @@ body a:link:visited {
   position: relative;
   padding-top: 0;
 }
-.hero-section .hero-contact p {
+.hero-section header {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.hero-section header .hero-contact p {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+.hero-section header .hero-contact i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.hero-section header .languages {
+  align-self: center;
+}
+.hero-section header .languages a,
+.hero-section header .languages p {
   display: inline-block;
+  margin: 0 5px;
 }
 .hero-section .hero-title {
   position: absolute;
@@ -97,7 +115,21 @@ body a:link:visited {
   width: 70%;
   margin: 0 auto 50px;
 }
-.about-me .main-image-wrapper img {
+.about-me .main-image-wrapper a {
+  display: inline-block;
+  position: relative;
+}
+.about-me .main-image-wrapper a:after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  right: 0;
+  background: url(./images/frontend_developer_m2.png) no-repeat;
+  width: 60px;
+  height: 100px;
+  background-size: 53px auto;
+}
+.about-me .main-image-wrapper a img {
   width: 100%;
   height: auto;
   vertical-align: middle;
@@ -190,7 +222,7 @@ body a:link:visited {
       width: 0px;
     }
     to {
-      width: 450px;
+      width: 100%;
     }
   }
   /* The typewriter cursor effect */
@@ -270,6 +302,17 @@ body a:link:visited {
   body i:hover {
     transform: scale(1.2);
   }
+  .hero-section header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 25px;
+    z-index: 200;
+    background-color: #fff;
+    -webkit-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  }
   .hero-section .hero-title {
     position: absolute;
     top: 50%;
@@ -292,5 +335,11 @@ body a:link:visited {
   .about-me .description {
     grid-area: description;
     align-self: center;
+  }
+  .about-me .description h3 {
+    text-transform: uppercase;
+  }
+  .about-me .description a {
+    color: #c50000;
   }
 }

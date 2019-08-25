@@ -46,8 +46,31 @@ body {
   position: relative;
   padding-top: 0;
 
-  .hero-contact p {
-    display: inline-block;
+  header {
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+
+    .hero-contact {
+      p {
+        margin-bottom: 10px;
+        margin-top: 0;
+      }
+  
+      i {
+        font-size: 20px;
+        margin-right: 10px;
+      }
+    }
+
+    .languages {
+      align-self: center;
+
+      a, p {
+        display: inline-block;
+        margin: 0 5px;
+      }
+    }
   }
 
   .hero-title {
@@ -117,10 +140,26 @@ body {
     width: 70%;
     margin: 0 auto 50px;
 
-    img {
-      width: 100%;
-      height: auto;
-      vertical-align: middle;
+    a {
+      display: inline-block;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        right: 0;
+        background: url(./images/frontend_developer_m2.png) no-repeat;
+        width: 60px;
+        height: 100px;
+        background-size: 53px auto;
+      }
+  
+      img {
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+      }
     }
   }
   
@@ -237,7 +276,7 @@ body {
       width: 0px 
     }
     to { 
-      width: 450px 
+      width: 100% 
     }
   }
 
@@ -337,6 +376,18 @@ body {
   }
 
   .hero-section {
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 15px 25px;
+      z-index: 200;
+      background-color: #fff;
+      -webkit-box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);
+    }
+
     .hero-title {
       position: absolute;
       top: 50%;
@@ -365,6 +416,14 @@ body {
     .description {
       grid-area: description;
       align-self: center;
+
+      h3 {
+        text-transform: uppercase;
+      }
+
+      a {
+        color: #c50000;
+      }
     }
   }
 }
