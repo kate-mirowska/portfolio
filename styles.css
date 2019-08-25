@@ -147,6 +147,13 @@ body a:link:visited {
   display: inline-block;
   border-bottom: 2px solid saddlebrown;
 }
+.about-me .description ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+.about-me .description ul i {
+  font-size: 14px;
+}
 .projects h4 {
   padding-top: 20px;
   font-size: 20px;
